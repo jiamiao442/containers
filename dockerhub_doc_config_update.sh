@@ -38,7 +38,7 @@ oses="alpine ubuntu centos ubi windowsservercore-ltsc2022 nanoserver-ltsc2022 wi
 # The image which is used by default when pulling shared tags on linux e.g 8-jdk
 default_linux_image="jammy"
 
-git_repo="https://github.com/adoptium/containers/blob/master"
+git_repo="https://github.com/jiamiao442/containers/blob/master"
 
 # Get the latest git commit of the current repo.
 # This is assumed to have all the latest dockerfiles already.
