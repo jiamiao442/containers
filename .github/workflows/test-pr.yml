@@ -25,7 +25,7 @@ jobs:
         run: |
           export GENERATE_STACKBREW_LIBRARY='./dockerhub_doc_config_update.sh /dev/stdout'
           #export GITHUB_REPOSITORY="eclipse-temurin"
-          export GITHUB_REPOSITORY="jiamiao442"
+          export GITHUB_REPOSITORY="jiamiao442/openjdk"
           strategy="$("$BASHBREW_SCRIPTS/github-actions/generate.sh")"
           echo "strategy=$strategy" >> "$GITHUB_OUTPUT"
           jq . <<<"$strategy" # sanity check / debugging aid
