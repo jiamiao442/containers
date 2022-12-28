@@ -30,7 +30,7 @@ ENV TIME_ZONE Asia/Shanghai
 RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib \
     && rm -rf /var/cache/apk/* \
     && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
-    && echo "${TIME_ZONE}" > /etc/timezone \
+    && echo "${TIME_ZONE}" > /etc/timezone
 
 ENV JAVA_VERSION jdk-17.0.5+8
 ENV TIME_ZONE Asia/Shanghai

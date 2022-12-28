@@ -27,8 +27,7 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 ENV TIME_ZONE Asia/Shanghai
 
 RUN yum install -y tzdata openssl curl wget ca-certificates fontconfig gzip tar binutils \
-    && yum clean all      && cp /usr/share/zoneinfo/ /etc/localtime     && echo "" > /etc/timezone EOI
-}
+    && yum clean all      && cp /usr/share/zoneinfo/ /etc/localtime     && echo "" > /etc/timezone
 
 # Select the ClefOS packages.
 print_clefos_pkg() {
