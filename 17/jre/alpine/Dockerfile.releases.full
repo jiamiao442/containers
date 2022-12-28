@@ -27,10 +27,12 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
 # fontconfig and ttf-dejavu added to support serverside image generation by Java programs
 RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib \
-    && rm -rf /var/cache/apk/*
+    && rm -rf /var/cache/apk/* \
+    && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
+    && echo "${TIME_ZONE}" > /etc/timezone \
 
 ENV JAVA_VERSION jdk-17.0.5+8
-
+ENV TIME_ZONE Asia/Shanghai
 RUN set -eux; \
     ARCH="$(apk --print-arch)"; \
     case "${ARCH}" in \
