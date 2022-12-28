@@ -168,6 +168,7 @@ print_lang_locale() {
 		cat >> "$1" <<-EOI
 # Default to UTF-8 file.encoding
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+ENV TIME_ZONE Asia/Shanghai
 
 	EOI
 	fi
@@ -325,7 +326,7 @@ EOI
 	cat >> "$1" <<-EOI
 
 ENV JAVA_VERSION ${jver}
-ENV TIME_ZONE Asia/Shanghai
+
 EOI
 }
 
