@@ -26,7 +26,7 @@ set -o pipefail
 source ./common_functions.sh
 
 if [[ -z "$1" ]]; then
-	official_docker_image_file="eclipse-temurin"
+	official_docker_image_file="jiamiao442/openjdk"
 else
 	official_docker_image_file="$1"
 fi
