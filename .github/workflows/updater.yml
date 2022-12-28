@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   update_dockerfile:
-    if: startsWith(github.repository, 'adoptium/')
+    if: startsWith(github.repository, 'jiamiao442/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@755da8c3cf115ac066823e79a1e1788f8940201b # v3.2.0
@@ -22,7 +22,7 @@ jobs:
 
       - uses: gr2m/create-or-update-pull-request-action@dc1726cbf4dd3ce766af4ec29cfb660e0125e8ee # v1
         env:
-          GITHUB_TOKEN: ${{ secrets.ADOPTIUM_TEMURIN_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.JIAMIAO_GITHUB_BOT_TOKEN }}
         with:
           title: "Update Dockerfiles"
           body: "This is an automatically generated pull request, it will be automatically merged if all the CI tests pass."
