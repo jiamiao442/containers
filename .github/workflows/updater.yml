@@ -2,8 +2,8 @@ name: Dockerfile Updater
 on:
   workflow_dispatch:
   schedule:
-    # Runs every half hour
-    - cron: "*/5 * * * *"
+    # Runs every 10 minites
+    - cron: "*/10 * * * *"
 
 permissions:
   contents: read
