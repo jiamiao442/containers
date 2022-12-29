@@ -6,6 +6,6 @@ on:
 
 jobs:
   automerge:
-    uses: adoptium/.github/.github/workflows/pr-auto-merge.yml@main
+    uses: jiamiao442/.github/.github/workflows/pr-auto-merge.yml@main
     with:
       allowed-author: eclipse-temurin-bot
