@@ -3,7 +3,7 @@ on:
   workflow_dispatch:
   schedule:
     # Runs every 10 minites
-    - cron: "*/10 * * * *"
+    - cron: "*/10 */10 * * *"
 
 permissions:
   contents: read
