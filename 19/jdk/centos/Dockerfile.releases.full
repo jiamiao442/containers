@@ -24,12 +24,23 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 # Default to UTF-8 file.encoding
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
-ENV TIME_ZONE Asia/Shanghai
 
 RUN yum install -y tzdata openssl curl wget ca-certificates fontconfig gzip tar binutils \
-    && yum clean all      && cp /usr/share/zoneinfo/ /etc/localtime     && echo "" > /etc/timezone
+    && yum clean all      && cp /usr/share/zoneinfo/ /etc/localtime     && echo "" > /etc/timezone EOI
+}
 
+# Select the ClefOS packages.
+print_clefos_pkg() {
+	print_centos_pkg "19/jdk/centos/Dockerfile.releases.full"
+}
 
+# Select the Leap packages.
+print_leap_pkg() {
+	cat >> "19/jdk/centos/Dockerfile.releases.full" <<'EOI'
+RUN zypper install --no-recommends -y timezone openssl wget ca-certificates fontconfig gzip tar     && zypper update -y; zypper clean --all
+
+ENV JAVA_VERSION jdk-19.0.1+10
+ENV TIME_ZONE Asia/Shanghai
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \
     case "${ARCH}" in \
