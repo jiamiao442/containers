@@ -156,7 +156,8 @@ EOI
 # Print the supported Alpine OS - this is for musl based images
 print_alpine_ver() {
 	cat >> "$1" <<-EOI
-	FROM alpine:3.17
+	#FROM alpine:3.17
+	FROM jiamiao442/alpine-glibc:alpine-3.17_glibc-2.34
 
 	EOI
 }
