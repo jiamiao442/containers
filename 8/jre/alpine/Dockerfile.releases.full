@@ -28,9 +28,9 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 ENV TIME_ZONE Asia/Shanghai
 
 # fontconfig and ttf-dejavu added to support serverside image generation by Java programs
-RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib \
-    && rm -rf /var/cache/apk/* \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib \\
+    && rm -rf /var/cache/apk/* \\
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \\
     && echo "Asia/Shanghai" > /etc/timezone
 
 
