@@ -270,8 +270,8 @@ print_centos_pkg() {
 	fi
 	cat >> "$1" <<EOI
 RUN yum install -y ${packages} \\
-    && yum clean all  \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && yum clean all  \\
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \\
     && echo "Asia/Shanghai" > /etc/timezone
 
 EOI
