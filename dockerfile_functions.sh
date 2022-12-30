@@ -231,9 +231,9 @@ print_alpine_pkg() {
 print_alpine_musl_pkg() {
 	cat >> "$1" <<'EOI'
 # fontconfig and ttf-dejavu added to support serverside image generation by Java programs
-RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib \
-    && rm -rf /var/cache/apk/* \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib \\
+    && rm -rf /var/cache/apk/* \\
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \\
     && echo "Asia/Shanghai" > /etc/timezone
 
 EOI
@@ -242,9 +242,9 @@ EOI
 # Select the ubi OS packages.
 print_ubi_pkg() {
 	cat >> "$1" <<'EOI'
-RUN dnf install -y binutils tzdata openssl wget ca-certificates fontconfig glibc-langpack-en gzip tar \
-    && dnf clean all \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+RUN dnf install -y binutils tzdata openssl wget ca-certificates fontconfig glibc-langpack-en gzip tar \\
+    && dnf clean all \\
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \\
     && echo "Asia/Shanghai" > /etc/timezone
 
 EOI
@@ -253,9 +253,9 @@ EOI
 # Select the ubi OS packages.
 print_ubi-minimal_pkg() {
 	cat >> "$1" <<'EOI'
-RUN microdnf install -y binutils tzdata openssl wget ca-certificates fontconfig glibc-langpack-en gzip tar \
-    && microdnf clean all  \
-    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+RUN microdnf install -y binutils tzdata openssl wget ca-certificates fontconfig glibc-langpack-en gzip tar \\
+    && microdnf clean all  \\
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \\
     && echo "Asia/Shanghai" > /etc/timezone
 
 EOI
@@ -285,7 +285,7 @@ print_clefos_pkg() {
 # Select the Leap packages.
 print_leap_pkg() {
 	cat >> "$1" <<'EOI'
-RUN zypper install --no-recommends -y timezone openssl wget ca-certificates fontconfig gzip tar \
+RUN zypper install --no-recommends -y timezone openssl wget ca-certificates fontconfig gzip tar \\
     && zypper update -y; zypper clean --all
 EOI
 }
