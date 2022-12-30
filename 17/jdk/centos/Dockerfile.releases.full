@@ -44,13 +44,7 @@ print_clefos_pkg() {
 	print_centos_pkg "17/jdk/centos/Dockerfile.releases.full"
 }
 
-# Select the Leap packages.
-print_leap_pkg() {
-	cat >> "17/jdk/centos/Dockerfile.releases.full" <<'EOI'
-RUN zypper install --no-recommends -y timezone openssl wget ca-certificates fontconfig gzip tar     && zypper update -y; zypper clean --all
 
-ENV JAVA_VERSION jdk-17.0.5+8
-ENV TIME_ZONE Asia/Shanghai
 RUN set -eux; \
     ARCH="$(objdump="$(command -v objdump)" && objdump --file-headers "$objdump" | awk -F '[:,]+[[:space:]]+' '$1 == "architecture" { print $2 }')"; \
     case "${ARCH}" in \

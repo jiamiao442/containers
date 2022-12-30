@@ -33,7 +33,8 @@ RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-de
     && echo "${TIME_ZONE}" > /etc/timezone
 
 ENV JAVA_VERSION jdk-17.0.5+8
-ENV TIME_ZONE Asia/Shanghai
+
+
 RUN set -eux; \
     ARCH="$(apk --print-arch)"; \
     case "${ARCH}" in \
