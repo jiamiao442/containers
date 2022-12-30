@@ -187,8 +187,8 @@ RUN apt-get update \\
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ${packages} \\
     && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \\
     && locale-gen en_US.UTF-8 \\
-    && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \\
-    && echo "${TIME_ZONE}" > /etc/timezone \\
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \\
+    && echo "Asia/Shanghai" > /etc/timezone \\
     && rm -rf /var/lib/apt/lists/*
 EOI
 }
@@ -233,8 +233,8 @@ print_alpine_musl_pkg() {
 # fontconfig and ttf-dejavu added to support serverside image generation by Java programs
 RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-dejavu tzdata zlib \
     && rm -rf /var/cache/apk/* \
-    && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
-    && echo "${TIME_ZONE}" > /etc/timezone
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone
 
 EOI
 }
@@ -244,8 +244,8 @@ print_ubi_pkg() {
 	cat >> "$1" <<'EOI'
 RUN dnf install -y binutils tzdata openssl wget ca-certificates fontconfig glibc-langpack-en gzip tar \
     && dnf clean all \
-    && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
-    && echo "${TIME_ZONE}" > /etc/timezone
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone
 
 EOI
 }
@@ -255,8 +255,8 @@ print_ubi-minimal_pkg() {
 	cat >> "$1" <<'EOI'
 RUN microdnf install -y binutils tzdata openssl wget ca-certificates fontconfig glibc-langpack-en gzip tar \
     && microdnf clean all  \
-    && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
-    && echo "${TIME_ZONE}" > /etc/timezone
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone
 
 EOI
 }
@@ -271,8 +271,8 @@ print_centos_pkg() {
 	cat >> "$1" <<EOI
 RUN yum install -y ${packages} \\
     && yum clean all  \
-    && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
-    && echo "${TIME_ZONE}" > /etc/timezone
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone
 
 EOI
 }
