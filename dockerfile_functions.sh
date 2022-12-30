@@ -235,6 +235,7 @@ RUN apk add --no-cache fontconfig libretls musl-locales musl-locales-lang ttf-de
     && rm -rf /var/cache/apk/* \
     && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
     && echo "${TIME_ZONE}" > /etc/timezone
+
 EOI
 }
 
@@ -245,6 +246,7 @@ RUN dnf install -y binutils tzdata openssl wget ca-certificates fontconfig glibc
     && dnf clean all \
     && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
     && echo "${TIME_ZONE}" > /etc/timezone
+
 EOI
 }
 
@@ -255,6 +257,7 @@ RUN microdnf install -y binutils tzdata openssl wget ca-certificates fontconfig 
     && microdnf clean all  \
     && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
     && echo "${TIME_ZONE}" > /etc/timezone
+
 EOI
 }
 
@@ -270,6 +273,7 @@ RUN yum install -y ${packages} \\
     && yum clean all  \
     && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
     && echo "${TIME_ZONE}" > /etc/timezone
+
 EOI
 }
 
