@@ -182,7 +182,7 @@ print_ubuntu_pkg() {
 		packages+=" binutils"
 	fi
 	cat >> "$1" <<EOI
-RUN apt-get update \\
+RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends ${packages} \
     && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
     && locale-gen en_US.UTF-8 \
