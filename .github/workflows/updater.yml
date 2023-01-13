@@ -1,6 +1,6 @@
 name: Dockerfile Updater
 on:
-  workflow_dispatch:
+#  workflow_dispatch:
 #  schedule:
 #    # Runs every 10 minites
 #    - cron: "*/10 */10 * * *"
@@ -30,6 +30,6 @@ jobs:
           title: "Update Dockerfiles"
           body: "This is an automatically generated pull request, it will be automatically merged if all the CI tests pass."
           branch: "dockerfile_bot"
-          commit-message: "dockerfile: automated nightly updates"
+          commit-message: "dockerfile: automated updates"
           labels: automerge
-          author: "eclipse-temurin-bot <temurin-bot@eclipse.org>"
+          author: "jiamiao442-bot <379289162@qq.com>"
